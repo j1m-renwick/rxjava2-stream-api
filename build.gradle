@@ -1,0 +1,32 @@
+plugins {
+    id "groovy"
+    id("io.micronaut.application") version "2.0.8"
+}
+
+version "1.0.0"
+group "com.dummy"
+
+repositories {
+    mavenCentral()
+    maven { url "https://jcenter.bintray.com" }
+}
+
+micronaut {
+    runtime("netty")
+    testRuntime("spock2")
+    processing {
+        incremental(true)
+        annotations("com.dummy.*")
+    }
+}
+
+dependencies {
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut.groovy:micronaut-runtime-groovy")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    implementation "io.micronaut.rxjava2:micronaut-rxjava2:1.1.0"
+    implementation "io.micronaut.rxjava2:micronaut-rxjava2-http-client:1.1.0"
+
+}
+
+mainClassName = "com.dummy.Application"

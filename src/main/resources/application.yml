@@ -1,0 +1,8 @@
+micronaut:
+  server:
+    port: 8095
+  http:
+    services:
+      reactive-client:
+        urls:
+          - http://localhost:8095
